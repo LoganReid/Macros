@@ -1,6 +1,10 @@
-Sub Macro1()
+'Macro Formats text to IEEE Double Column template.
+'Wokrs in Microsoft word 2013.
+'Template up to date as of April, 2016.
+
+Sub IEEE_Body()
 '
-' Macro1 Macro
+' IEEE_Body Macro
 '
 '
     Selection.WholeStory
