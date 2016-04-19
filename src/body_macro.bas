@@ -1,7 +1,7 @@
-Sub Macro1()
+Sub IEEEBodyMacro()
 '
-' Macro1 Macro
-'
+' Subroutine for formatting IEEE two column documents
+' Running the macro will set up the formatting of the paper to adhere to the IEEE two column standard
 '
     Selection.WholeStory
     With ActiveDocument.Styles(wdStyleNormal).Font
@@ -10,6 +10,7 @@ Sub Macro1()
         End If
         .NameFarEast = ""
     End With
+    
     With ActiveDocument.PageSetup
         .LineNumbering.Active = False
         .Orientation = wdOrientPortrait
@@ -36,6 +37,7 @@ Sub Macro1()
         .BookFoldPrintingSheets = 1
         .GutterPos = wdGutterPosLeft
     End With
+    
     With Selection.ParagraphFormat
         .LeftIndent = InchesToPoints(0)
         .RightIndent = InchesToPoints(0)
@@ -62,6 +64,7 @@ Sub Macro1()
         .TextboxTightWrap = wdTightNone
         .CollapsedByDefault = False
     End With
+    
     With Selection.ParagraphFormat
         .LeftIndent = InchesToPoints(0)
         .RightIndent = InchesToPoints(0)
@@ -89,6 +92,7 @@ Sub Macro1()
         .TextboxTightWrap = wdTightNone
         .CollapsedByDefault = False
     End With
+    
     With Selection.ParagraphFormat
         .LeftIndent = InchesToPoints(0)
         .RightIndent = InchesToPoints(0)
@@ -115,6 +119,7 @@ Sub Macro1()
         .TextboxTightWrap = wdTightNone
         .CollapsedByDefault = False
     End With
+    
     Selection.ParagraphFormat.Alignment = wdAlignParagraphJustify
     With Selection.ParagraphFormat
         .LeftIndent = InchesToPoints(0)
@@ -142,6 +147,7 @@ Sub Macro1()
         .TextboxTightWrap = wdTightNone
         .CollapsedByDefault = False
     End With
+    
     Selection.Font.Name = "Times New Roman"
     Selection.Font.Size = 12
     Selection.WholeStory
@@ -151,6 +157,7 @@ Sub Macro1()
         End If
         .NameFarEast = ""
     End With
+    
     With ActiveDocument.PageSetup
         .LineNumbering.Active = False
         .Orientation = wdOrientPortrait
@@ -177,25 +184,29 @@ Sub Macro1()
         .BookFoldPrintingSheets = 1
         .GutterPos = wdGutterPosLeft
     End With
+    
     If ActiveWindow.View.SplitSpecial <> wdPaneNone Then
         ActiveWindow.Panes(2).Close
     End If
     If ActiveWindow.ActivePane.View.Type <> wdPrintView Then
         ActiveWindow.ActivePane.View.Type = wdPrintView
     End If
+    
     With ActiveDocument.PageSetup.TextColumns
         .SetCount NumColumns:=1
         .EvenlySpaced = False
         .LineBetween = False
     End With
+    
     ActiveDocument.PageSetup.TextColumns.Add Width:=InchesToPoints(3.5), _
         Spacing:=InchesToPoints(0.24), EvenlySpaced:=False
     Selection.WholeStory
     ActiveWindow.ActivePane.VerticalPercentScrolled = 0
 End Sub
+
 Sub Heading()
 '
-' Heading Macro
+' Subroutine for formatting IEEE two column format headings
 '
 '
     Selection.Font.Name = "Times New Roman"
